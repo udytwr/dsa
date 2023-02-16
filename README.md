@@ -12,4 +12,4 @@ The workspace contains two folders by default, where:
 - `lib`: the folder to maintain dependencies
 - `bin\class\..`: the folder to all the compiled classes 
 
-> *Warning!* The code present in this repository is subject to change, this is only here for future refernece.
+> *Warning!* The code present in this repository is subject to change, this is only here for future reference.
