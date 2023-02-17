@@ -6,10 +6,10 @@ Heading to a new journey of learning DSA in Java
 
 ## Folder Structure
 
-The workspace contains two folders by default, where:
+The workspace contains three folders, where:
 
 - `src`: the folder to maintain sources
 - `lib`: the folder to maintain dependencies
 - `bin\class\..`: the folder to all the compiled classes 
 
-> *Warning!* The code present in this repository is subject to change, this is only here for future reference.
+> *Warning!* The code present in this repository is subject to change, this is only here for my future reference.
