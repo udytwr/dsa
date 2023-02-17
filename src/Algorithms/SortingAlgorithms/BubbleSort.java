@@ -2,6 +2,8 @@ package Algorithms.SortingAlgorithms;
 
 import java.util.Arrays;
 
+import Core_Java.SwapArray;
+
 public class BubbleSort {
 
     public static int[] bubbleSort(int[] arr, boolean inDesc) {
@@ -12,23 +14,12 @@ public class BubbleSort {
 
                 if(inDesc) {
 
-                    if(arr[at-1] < arr[at]) {
-
-                    int temp = arr[at];
-                    arr[at] = arr[at-1];
-                    arr[at-1] = temp;
-
-                    }
+                    if(arr[at-1] < arr[at]) SwapArray.swapArray(arr, at, at-1);
 
                 } else {
 
-                    if(arr[at-1] > arr[at]) {
-
-                    int temp = arr[at];
-                    arr[at] = arr[at-1];
-                    arr[at-1] = temp;
-
-                    }
+                    if(arr[at-1] > arr[at]) SwapArray.swapArray(arr, at, at-1);
+                    
                 }
             }
         }

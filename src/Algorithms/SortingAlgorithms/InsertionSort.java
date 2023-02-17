@@ -2,6 +2,8 @@ package Algorithms.SortingAlgorithms;
 
 import java.util.Arrays;
 
+import Core_Java.SwapArray;
+
 public class InsertionSort {
 
     public static int[] insertionSort(int[] arr) {
@@ -12,14 +14,7 @@ public class InsertionSort {
                 
                 if (arr[at-1] <= arr[at]) {
                     break;
-                } else {
-
-                    int temp = arr[at];
-                    arr[at] = arr[at-1];
-                    arr[at-1] = temp;
-
-                }
-
+                } else SwapArray.swapArray(arr, at, at-1);
             }
 
         }

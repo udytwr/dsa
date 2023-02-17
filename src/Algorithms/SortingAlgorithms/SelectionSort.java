@@ -2,6 +2,8 @@ package Algorithms.SortingAlgorithms;
 
 import java.util.Arrays;
 
+import Core_Java.SwapArray;
+
 public class SelectionSort {
 
     public static int[] selectionSort(int[] arr) {
@@ -19,10 +21,8 @@ public class SelectionSort {
                 }
 
             }
-        
-            int temp = arr[noOfPasses-1];
-            arr[noOfPasses-1] = arr[maxIndex];
-            arr[maxIndex] = temp;
+            
+            SwapArray.swapArray(arr, noOfPasses-1, maxIndex);
         }
 
         return arr;
