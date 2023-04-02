@@ -1,61 +1,74 @@
 package Algorithms.SortingAlgorithms;
 
+/*
+    - Merge Sort Algorithm in Java!
+    - Modified on 2-4-23
+*/
+
 import java.util.Arrays;
 
 public class MergeSort_InPlace {
-    
-    public static void mergeSortInPlace(int[] arr, int s, int e) {
 
-        if (e - s == 1) return;
+    public static void mergeSort(int[] arr, int l, int h) {
+        if (h - l > 0) {
 
-        int mid = (s + e)/2;
+            int m = l + (h - l)/2;
 
-        mergeSortInPlace(arr, s, mid);
-        mergeSortInPlace(arr, mid, e);
+            mergeSort(arr, l, m);
+            mergeSort(arr, m+1, h);
 
-        mergeInPlace(arr, s, mid, e);
+            mergeArr(arr, l, m, h);
+        }
     }
 
-    private static void mergeInPlace(int[] arr, int s, int mid, int e) {
+    private static void mergeArr(int[] arr, int l, int m, int h) {
 
-        int[] Out = new int[e - s];
+        int[] mix = new int[(h - l)+1];
 
-        int i = s, j = mid, os = 0;
+        int s = l;
+        int md = m+1;
+        int k = 0;
 
-        
-        while (i < mid && j < e) {
-            if (arr[i] < arr[j]) {
-                Out[os] = arr[i];
-                i++;
+        while (s < m+1 && md <= h)  {
+            if (arr[s] < arr[md]) {
+                mix[k] = arr[s];
+                s++;
             } else {
-                Out[os] = arr[j];
-                j++;
+                mix[k] = arr[md];
+                md++;
             }
-            os++;
+            k++;
         }
 
-        while (i < mid) {
-            Out[os] = arr[i];
-            i++;
-            os++;
+        while (s < m+1) {
+            mix[k] = arr[s];
+            s++;
+            k++;
         }
 
-        while (j < e) {
-            Out[os] = arr[j];
-            j++;
-            os++;
+        while (md <= h) {
+            mix[k] = arr[md];
+            md++;
+            k++;
         }
 
-        for (int l = 0; l < Out.length; l++) {
-            arr[s+l] = Out[l];
+        for (int i = 0; i < mix.length; i++) {
+            arr[l + i] = mix[i];
         }
 
     }
 
     public static void main(String[] args) {
-        int[] arr = {5,4,3,2,1};
-        mergeSortInPlace(arr, 0, arr.length);
+
+        /*
+         * -> Divide array into 2 parts.
+         * -> Get both parts sorted via recursion.
+         * -> Merge these sorted arrays.
+         * -> Complexity analysis : At every level there are 'N' elements, and hence 'N' elements are being merged at every level, hence the time complexity for this sorting algorithm is O(N * log(N))
+        */
+
+        int[] arr = {35,50,15,25,80,20,90,45};
+        mergeSort(arr, 0, arr.length-1);
         System.out.println(Arrays.toString(arr));
     }
-
 }
